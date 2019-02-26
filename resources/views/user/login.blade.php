@@ -10,7 +10,7 @@
         <form method="POST">
             nick:<input type="text" name='nick'><br>
             haslo:<input type="password" name='password'><br>
-            <input type="submit" value='zaloguj pedale'>
+            <input type="submit" value='zaloguj'>
         </form>
     </body>
 </html>
