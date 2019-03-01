@@ -14,17 +14,18 @@
     @endif
     <form method="POST">
         @csrf
-        nick:<input type="text" name='nick'><br>
-        haslo:<input type="password" name='password'><br>
-        imie:<input type="text" name='imie'><br>
-        nazwisko:<input type="text" name='nazwisko'><br>
-        email:<input type="email" name='email'><br>
-        plec:<select name="plec">
+        Nick:<input type="text" name='nick'><br>
+        Hasło:<input type="password" name='password'><br>
+        Imię:<input type="text" name='imie'><br>
+        Nazwisko:<input type="text" name='nazwisko'><br>
+        E-Mail:<input type="email" name='email'><br>
+        Płeć:<select name="plec">
             <option value="samica">samica</option>
             <option value="samiec">samiec</option>
         </select><br>
-        data urodzenia:<input type="date" name='data-ur'><br>
-        czy jestes adminem? (prosze nie klam):<input type="checkbox" name='admin'><br>
-        <input type="submit" value='zaloguj'>
+        Data urodzenia:<input type="date" name='data-ur'><br>
+        Czy jesteś adminem? (proszę nie kłam):<input type="checkbox" name='admin'><br>
+        <input type="submit" value='Zarejestruj'>
     </form>
+    <a href="{{ action('User\Auth\LoginController@showForm') }}">Masz konto? Zaloguj się!</a>
 @endsection

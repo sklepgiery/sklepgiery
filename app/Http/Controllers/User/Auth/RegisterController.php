@@ -14,7 +14,7 @@ class RegisterController extends Controller
 {
     public function __construct()
     {
-        $this->middleware("user.logged.in");
+        $this->middleware("user.not.logged.in");
     }
 
     public function showForm()
@@ -40,7 +40,7 @@ class RegisterController extends Controller
 
         $nowyCzlonekKlanu = new Uzytkownik;
         $nowyCzlonekKlanu->nick = $validatedData["nick"];
-        $nowyCzlonekKlanu->haslo = Hash::make($validatedData["password"]);
+        $nowyCzlonekKlanu->password = Hash::make($validatedData["password"]);
         $nowyCzlonekKlanu->imie = $validatedData["imie"];
         $nowyCzlonekKlanu->nazwisko = $validatedData["nazwisko"];
         $nowyCzlonekKlanu->plec = $validatedData["plec"];

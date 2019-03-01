@@ -15,9 +15,9 @@
     
     <form method="POST">
         @csrf
-        nick:<input type="text" name='nick'><br>
-        haslo:<input type="password" name='password'><br>
-        <input type="submit" value='zaloguj'>
+        Nick:<input type="text" name='nick'><br>
+        Hasło:<input type="password" name='password'><br>
+        <input type="submit" value='Zaloguj'>
     </form>
-    <a href="{{ action('User\Auth\RegisterController@showForm') }}">nie masz konta? zarejestruj sie!</a>
+    <a href="{{ action('User\Auth\RegisterController@showForm') }}">Nie masz konta? Zarejestruj się!</a>
 @endsection

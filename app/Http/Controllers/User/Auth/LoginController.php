@@ -8,6 +8,11 @@ use Illuminate\Support\Facades\Auth;
 
 class LoginController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware("user.not.logged.in");
+    }
+
     public function showForm()
     {
         return view('user.auth.login');
@@ -15,13 +20,18 @@ class LoginController extends Controller
 
     public function login(Request $request)
     {
-        $credentials = $request->only('nick', 'password');
-
+        $validatedData = $request->validate([
+            'nick' => 'required',
+            'password' => 'required',
+        ]);
+        $credentials = [
+            "nick"=>$validatedData["nick"],
+            "password"=>$validatedData["password"]
+        ];
         if (Auth::attempt($credentials)) {
-            return "zalogowano";
+            return redirect()->action('User\UserController@index');
         }
-        else
-        {
+        else {
             return back()->withErrors(["credentials" => "Błędny login lub hasło"]);
         }
     }

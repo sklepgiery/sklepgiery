@@ -14,6 +14,9 @@
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get('/domek', 'User\UserController@index');
+
+Route::get('/wyloguj', 'User\Auth\LogoutController@logout');
 
 Route::get('/login', 'User\Auth\LoginController@showForm');
 Route::post('/login', 'User\Auth\LoginController@login');

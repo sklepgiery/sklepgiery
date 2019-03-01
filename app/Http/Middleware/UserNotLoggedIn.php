@@ -18,7 +18,7 @@ class UserNotLoggedIn
     public function handle($request, Closure $next)
     {
         if (Auth::check()) {
-            return redirect("/");
+            return redirect()->action('User\UserController@index');
         }
         
         return $next($request);
