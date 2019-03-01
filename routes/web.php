@@ -15,8 +15,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/login', 'User\LoginController@showForm');
-Route::post('/login', 'User\LoginController@login');
+Route::get('/login', 'User\Auth\LoginController@showForm');
+Route::post('/login', 'User\Auth\LoginController@login');
 
-Route::get('/rejestracja', 'User\RegisterController@showForm');
-Route::post('/rejestracja', 'User\RegisterController@register');
+Route::get('/rejestracja', 'User\Auth\RegisterController@showForm');
+Route::post('/rejestracja', 'User\Auth\RegisterController@register');
