@@ -1,6 +1,6 @@
 @extends('layouts.user')
 
-@section('title', 'Zarejestruj się')
+@section('title', 'Witaj')
 
 @section('content')
     <h1>DOMEK</h1>

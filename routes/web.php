@@ -14,7 +14,13 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+
 Route::get('/domek', 'User\UserController@index');
+Route::get('/panel/giery', 'Dashboard\GameController@index');
+
+Route::get('/panel/giery/dodaj', 'Dashboard\GameAddController@showForm');
+Route::post('/panel/giery/dodaj', 'Dashboard\GameAddController@add');
 
 Route::get('/wyloguj', 'User\Auth\LogoutController@logout');
 
