@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Http\Controllers\User\Auth;
+namespace App\Http\Controllers\Dashboard\Games;
 
 use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
+use App\Http\Controllers\Dashboard\DashBoardController;
 
 use App\Models\Producent;
 use App\Models\Gra;
@@ -13,7 +13,7 @@ class GameAddController extends DashBoardController
     public function showForm()
     {
         $producent = Producent::all();
-        return view('user.auth.addGame', ['producenci' => $producent]);
+        return view('dashboard.games.addGame', ['producenci' => $producent]);
     }
     public function add(Request $request)
     {
@@ -33,6 +33,6 @@ class GameAddController extends DashBoardController
         
         $newGra->save();
 
-        return view('user.auth.addedGame');
+        return view('dashboard.games.addedGame');
     }
 }

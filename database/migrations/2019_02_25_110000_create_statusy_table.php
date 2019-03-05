@@ -4,6 +4,8 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
+use App\Models\Status;
+
 class CreateStatusyTable extends Migration
 {
     /**
@@ -17,6 +19,22 @@ class CreateStatusyTable extends Migration
             $table->increments('id');
             $table->string('nazwa');
         });
+
+        addStatuses();
+    }
+
+    public function addStatuses() {
+        $status = new Status();
+        $status->nazwa = "Koszyk";
+        $status->save();
+
+        $status = new Status();
+        $status->nazwa = "Do zapłaty";
+        $status->save();
+
+        $status = new Status();
+        $status->nazwa = "Gotowe";
+        $status->save();
     }
 
     /**

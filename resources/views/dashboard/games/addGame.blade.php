@@ -1,4 +1,4 @@
-@extends('layouts.user')
+@extends('layouts.dashboard')
 
 @section('title', 'Dodaj Grę')
 
@@ -25,5 +25,5 @@
             </ul>
         </div>
     @endif
-    <a href="{{ action('Dashboard\GameController@index') }}">Nie chcesz dodać? nie ma problemu!</a>
+    <a href="{{ action('Dashboard\Games\GameController@index') }}">Nie chcesz dodać? nie ma problemu!</a>
 @endsection

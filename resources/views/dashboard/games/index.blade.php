@@ -1,6 +1,6 @@
-@extends('layouts.user')
+@extends('layouts.dashboard')
 
-@section('title', 'Panel Admina')
+@section('title', 'Giery')
 
 @section('content')
     @foreach ($gry as $gra)
@@ -8,5 +8,5 @@
             <p>{{ $gra->nazwa }}</p>
         </div>
     @endforeach
-    <a href="{{ action('Dashboard\GameAddController@showForm') }}">Dodaj Giery!</a>
+    <a href="{{ action('Dashboard\Games\GameAddController@showForm') }}">Dodaj Giery!</a>
 @endsection
