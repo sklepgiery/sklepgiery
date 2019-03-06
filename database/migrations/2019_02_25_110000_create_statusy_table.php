@@ -20,7 +20,7 @@ class CreateStatusyTable extends Migration
             $table->string('nazwa');
         });
 
-        addStatuses();
+        $this->addStatuses();
     }
 
     public function addStatuses() {

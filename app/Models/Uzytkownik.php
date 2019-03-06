@@ -18,4 +18,8 @@ class Uzytkownik extends Authenticatable
         return $this->hasMany('App\Models\Faktura');
     }
 
+    public function zamowienia()
+    {
+        return $this->hasMany('App\Models\Zamowienie');
+    }
 }

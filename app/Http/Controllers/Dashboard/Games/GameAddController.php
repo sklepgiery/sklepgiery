@@ -13,26 +13,28 @@ class GameAddController extends DashBoardController
     public function showForm()
     {
         $producent = Producent::all();
-        return view('dashboard.games.addGame', ['producenci' => $producent]);
+        return view('dashboard.games.add', ['producenci' => $producent]);
     }
     public function add(Request $request)
     {
         $validatedData = $request->validate([
             'nazwa' => 'required',
-            'producent_id' => 'required|exists:producenci,id',
+            'producent' => 'required|exists:producenci,id',
             'cena' => 'required',
             'opis' => 'required',
             'zdjecie' => 'required',
         ]);
+
         $newGra = new Gra;
         $newGra->nazwa = $validatedData["nazwa"];
-        $newGra->producent_id = $validatedData["producent_id"];
         $newGra->cena = $validatedData["cena"];
         $newGra->opis = $validatedData["opis"];
         $newGra->zdjecie = $validatedData["zdjecie"];
-        
+
+        $newGra->producent()->associate($validatedData["producent_id"]);
+
         $newGra->save();
 
-        return view('dashboard.games.addedGame');
+        return view('dashboard.games.added');
     }
 }

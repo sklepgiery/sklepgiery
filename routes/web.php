@@ -18,10 +18,18 @@ Route::get('/', function () {
 Route::get('/domek', 'User\UserController@index');
 
 Route::get('/panel', 'Dashboard\DashboardController@index');
-Route::get('/panel/giery', 'Dashboard\Games\GameController@index');
 
+Route::get('/panel/giery', 'Dashboard\Games\GameController@index');
 Route::get('/panel/giery/dodaj', 'Dashboard\Games\GameAddController@showForm');
 Route::post('/panel/giery/dodaj', 'Dashboard\Games\GameAddController@add');
+
+Route::get('/panel/producenci', 'Dashboard\Producers\ProducerController@index');
+Route::get('/panel/producenci/dodaj', 'Dashboard\Producers\ProducerAddController@showForm');
+Route::post('/panel/producenci/dodaj', 'Dashboard\Producers\ProducerAddController@add');
+
+Route::get('/panel/gatunki', 'Dashboard\Genres\GenreController@index');
+Route::get('/panel/gatunki/dodaj', 'Dashboard\Genres\GenreAddController@showForm');
+Route::post('/panel/gatunki/dodaj', 'Dashboard\Genres\GenreAddController@add');
 
 Route::get('/wyloguj', 'User\Auth\LogoutController@logout');
 
