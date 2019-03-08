@@ -23,6 +23,10 @@ Route::get('/panel/giery', 'Dashboard\Games\GameController@index');
 Route::get('/panel/giery/dodaj', 'Dashboard\Games\GameAddController@showForm');
 Route::post('/panel/giery/dodaj', 'Dashboard\Games\GameAddController@add');
 
+Route::get('/panel/kody', 'Dashboard\Discounts\DiscountController@index');
+Route::get('/panel/kody/dodaj', 'Dashboard\Discounts\DiscountAddController@showForm');
+Route::post('/panel/kody/dodaj', 'Dashboard\Discounts\DiscountAddController@add');
+
 Route::get('/panel/producenci', 'Dashboard\Producers\ProducerController@index');
 Route::get('/panel/producenci/dodaj', 'Dashboard\Producers\ProducerAddController@showForm');
 Route::post('/panel/producenci/dodaj', 'Dashboard\Producers\ProducerAddController@add');
