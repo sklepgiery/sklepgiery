@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers\Dashboard\Games;
 
-use Illuminate\Http\Request;
 use App\Http\Controllers\Dashboard\DashBoardController;
 
 use App\Models\Gra;
@@ -10,8 +9,13 @@ use App\Models\Gra;
 class GameController extends DashboardController
 {
     public function index()
-    {   
-        $gry = Gra::all();
+    {
+        $gry = Gra::get();
         return view("dashboard.games.index", ['gry' => $gry]);
+    }
+
+    public function redirect($id)
+    {
+        return redirect()->action("Dashboard\Games\GameEditController@showForm", $id);
     }
 }

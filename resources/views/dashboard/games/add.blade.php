@@ -24,6 +24,11 @@
         Opis:<input type="textarea" name='opis'><br>
         Cena:<input type="number" step="0.01" name='cena'><br>
         Zdjęcie:<input type="text" name='zdjecie'><br>
+        Gatunki: <select name="gatunki[]" multiple>
+            @foreach($gatunki as $gatunek)
+            <option value="{{$gatunek->id}}">{{$gatunek->nazwa}}</option>
+            @endforeach
+        </select>
         <input type="submit" value='Dodaj Giere'>
     </form>
 

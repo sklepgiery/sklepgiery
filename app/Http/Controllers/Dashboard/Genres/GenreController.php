@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers\Dashboard\Genres;
 
-use Illuminate\Http\Request;
 use App\Http\Controllers\Dashboard\DashBoardController;
 
 use App\Models\Gatunek;
@@ -10,8 +9,13 @@ use App\Models\Gatunek;
 class GenreController extends DashBoardController
 {
     public function index()
-    {   
-        $gatuneks = Gatunek::all();
+    {
+        $gatuneks = Gatunek::with("gry")->get();
         return view("dashboard.genres.index", ['gatuneczeks' => $gatuneks]);
+    }
+
+    public function redirect($id)
+    {
+        return redirect()->action("Dashboard\Genres\GenreEditController@showForm", $id);
     }
 }

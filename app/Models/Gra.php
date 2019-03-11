@@ -28,4 +28,9 @@ class Gra extends Model
     {
         return $this->belongsToMany('App\Models\Zamowienie', 'elementy_zamowienia');
     }
+
+    //TODO
+    public function getCurrentPriceAttribute() {
+
+    }
 }

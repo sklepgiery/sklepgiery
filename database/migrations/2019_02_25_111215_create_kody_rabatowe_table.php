@@ -15,8 +15,10 @@ class CreateKodyRabatoweTable extends Migration
     {
         Schema::create('kody_rabatowe', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('nazwa');
+            $table->string('nazwa')->unique();
             $table->decimal('znizka_procentowo', 4, 2);
+            $table->timestamp('data_rozpoczecia')->useCurrent();
+            $table->timestamp('data_zakonczenia')->useCurrent();
         });
     }
 

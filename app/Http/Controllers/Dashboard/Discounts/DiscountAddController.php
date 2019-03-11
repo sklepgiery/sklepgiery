@@ -5,32 +5,31 @@ namespace App\Http\Controllers\Dashboard\Discounts;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Dashboard\DashBoardController;
 
+use App\Models\KodRabatowy;
+
 class DiscountAddController extends DashBoardController
 {
     public function showForm()
     {
-        return view('dashboard.games.add');
+        return view('dashboard.discounts.add');
     }
+
     public function add(Request $request)
     {
         $validatedData = $request->validate([
-            'nazwa' => 'required',
-            'producent' => 'required|exists:producenci,id',
-            'cena' => 'required',
-            'opis' => 'required',
-            'zdjecie' => 'required',
+            'nazwa' => 'required|unique:kody_rabatowe,nazwa',
+            'znizka_procentowo' => 'required|numeric',
+            'data_rozpoczecia' => 'required|date',
+            'data_zakonczenia' => 'required|date',
         ]);
 
-        $newGra = new Gra;
-        $newGra->nazwa = $validatedData["nazwa"];
-        $newGra->cena = $validatedData["cena"];
-        $newGra->opis = $validatedData["opis"];
-        $newGra->zdjecie = $validatedData["zdjecie"];
+        $newCode = new KodRabatowy;
+        $newCode->nazwa = $validatedData["nazwa"];
+        $newCode->znizka_procentowo = $validatedData["znizka_procentowo"];
+        $newCode->data_rozpoczecia = $validatedData["data_rozpoczecia"];
+        $newCode->data_zakonczenia = $validatedData["data_zakonczenia"];
+        $newCode->save();
 
-        $newGra->producent()->associate($validatedData["producent_id"]);
-
-        $newGra->save();
-
-        return view('dashboard.games.added');
+        return view('dashboard.discounts.added');
     }
 }
