@@ -28,7 +28,7 @@ class LoginController extends Controller
             "nick"=>$validatedData["nick"],
             "password"=>$validatedData["password"]
         ];
-        if (Auth::attempt($credentials)) {
+        if (Auth::attempt($credentials, $request->input("remember"))) {
             return redirect()->action('User\UserController@index');
         }
         else {

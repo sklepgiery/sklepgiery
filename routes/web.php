@@ -51,4 +51,3 @@ Route::post('/login', 'User\Auth\LoginController@login');
 
 Route::get('/rejestracja', 'User\Auth\RegisterController@showForm');
 Route::post('/rejestracja', 'User\Auth\RegisterController@register');
-
