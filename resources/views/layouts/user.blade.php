@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <title>{{config("app.name")}} - @yield('title')</title>
-  <link rel="stylesheet" href="css/app.css" type="text/css" />
+  <link rel="stylesheet" href="/sklepgiery/public/css/app.css" type="text/css" />
 </head>
 
 <body>
@@ -16,7 +16,7 @@
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbar">
-      <a class="navbar-brand" href="">Sklep Giery</a> @auth
+      <a class="navbar-brand" href="{{action('Shop\ShopController@index')}}">Sklep Giery</a> @auth
       <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
         @if(Auth::user()->admin)
         <li class="nav-item">
@@ -30,7 +30,13 @@
       @endauth @auth
       <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
         <li class="nav-item">
-          <a class="nav-link" href="">Koszyk</a>
+          <a class="nav-link" href="">Koszyk 
+            @if (Auth::user()->koszyk)
+            ({{Auth::user()->koszyk->gry()->count()}})
+            @else
+            (0)
+            @endif
+          </a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="{{action('User\UserController@index')}}">
@@ -56,7 +62,6 @@
   <div class="container p-2 mt-2">
     @yield('content')
   </div>
-  <script src="js/app.js"></script>
+  <script src="/sklepgiery/public/js/app.js"></script>
 </body>
-
 </html>

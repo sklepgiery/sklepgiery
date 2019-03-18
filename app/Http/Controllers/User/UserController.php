@@ -3,6 +3,10 @@
 namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
+
+use App\Models\Zamowienie;
+use App\Models\Status;
 
 class UserController extends Controller
 {

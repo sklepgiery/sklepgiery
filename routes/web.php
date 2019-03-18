@@ -11,7 +11,11 @@
 |
 */
 
+Route::get('/', 'Shop\ShopController@index');
+
 Route::get('/domek', 'User\UserController@index');
+Route::get('/koszyk', 'User\Orders\CartController@index');
+
 
 Route::get('/panel', 'Dashboard\DashboardController@index');
 
