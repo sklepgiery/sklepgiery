@@ -26,6 +26,11 @@ Route::get('/panel/giery/{id}/usun', 'Dashboard\Games\GameRemoveController@remov
 Route::get('/panel/kody', 'Dashboard\Discounts\DiscountController@index');
 Route::get('/panel/kody/dodaj', 'Dashboard\Discounts\DiscountAddController@showForm');
 Route::post('/panel/kody/dodaj', 'Dashboard\Discounts\DiscountAddController@add');
+Route::get('/panel/kody/{id}', 'Dashboard\Discounts\DiscountController@redirect');
+Route::get('/panel/kody/{id}/edytuj', 'Dashboard\Discounts\DiscountEditController@showForm');
+Route::post('/panel/kody/{id}/edytuj', 'Dashboard\Discounts\DiscountEditController@save');
+Route::get('/panel/kody/{id}/usun', 'Dashboard\Discounts\DiscountRemoveController@remove');
+
 
 Route::get('/panel/producenci', 'Dashboard\Producers\ProducerController@index');
 Route::get('/panel/producenci/dodaj', 'Dashboard\Producers\ProducerAddController@showForm');
