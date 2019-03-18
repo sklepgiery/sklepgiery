@@ -30,7 +30,7 @@
       @endauth @auth
       <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
         <li class="nav-item">
-          <a class="nav-link" href="">Koszyk 
+          <a class="nav-link" href="{{action("User\Orders\CartController@index")}}">Koszyk 
             @if (Auth::user()->koszyk)
             ({{Auth::user()->koszyk->gry()->count()}})
             @else

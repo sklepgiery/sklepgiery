@@ -36,4 +36,17 @@ class Uzytkownik extends Authenticatable
 
         return $koszyk;
     }
+
+    public function getGryAttribute() {
+        $gotoweStatus = Status::where("nazwa", "Gotowe")->first();
+
+        $zamowienia = Zamowienie::with("gry")->where([
+            ["status_id", $gotoweStatus->id],
+            ["uzytkownik_id", $this->id]
+            ])->get();
+
+        dd($zamowienia);
+
+        return $zamowienia;
+    }
 }
