@@ -12,6 +12,9 @@ class GameRemoveController extends DashboardController
     {
         $game = Gra::find($id);
         
+        $game->zamowienia()->detach();
+        $game->gatunki()->detach();
+
         if (!$game) {
             return redirect()->back();
         }
