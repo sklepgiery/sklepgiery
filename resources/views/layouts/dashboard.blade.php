@@ -18,7 +18,7 @@
                 <a class="navbar-brand" href="{{action('Dashboard\DashboardController@index')}}">Panel Admina</a>
                 <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
                 <li class="nav-item">
-                    <a class="nav-link" href="">Strona główna</a>
+                    <a class="nav-link" href="{{ action('Shop\ShopController@index') }}">Strona główna</a>
                 </li>
                 </ul>
                 @auth

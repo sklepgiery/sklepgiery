@@ -7,7 +7,7 @@
         <thead class="thead-light">
           <tr>
             <th scope="col">Nazwa</th>
-            <th scope="col">ilość gier:</th>
+            <th scope="col">Producent</th>
             <th scope="col"></th>
             <th scope="col"></th>
           </tr>
@@ -25,5 +25,5 @@
             @endforeach
         </tbody>
     </table>
-    <a href="{{ action('Dashboard\Games\GameAddController@showForm') }}">Dodaj Giery!</a>
+    <a class="btn btn-primary" role="button" href="{{ action('Dashboard\Games\GameAddController@showForm') }}">Dodaj Giery!</a>
 @endsection
