@@ -40,13 +40,20 @@ class Uzytkownik extends Authenticatable
     public function getGryAttribute() {
         $gotoweStatus = Status::where("nazwa", "Gotowe")->first();
 
+        $gry = [];
+
         $zamowienia = Zamowienie::with("gry")->where([
             ["status_id", $gotoweStatus->id],
             ["uzytkownik_id", $this->id]
             ])->get();
 
-        dd($zamowienia);
 
-        return $zamowienia;
+        foreach ($zamowienia as $zamowienie) {
+            foreach ($zamowienie->gry as $gra) {
+                array_push($gry, $gra);
+            }
+        }
+
+        return collect($gry);
     }
 }

@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <title>{{config("app.name")}} - @yield('title')</title>
-  <link rel="stylesheet" href="/sklepgiery/public/css/app.css" type="text/css" />
+  <link rel="stylesheet" href="/css/app.css" type="text/css" />
 </head>
 
 <body>
@@ -24,7 +24,7 @@
         </li>
         @endif
         <li class="nav-item">
-          <a class="nav-link" href="">Twoje gry</a>
+          <a class="nav-link" href="{{ action('User\LibraryController@index') }}">Twoje gry</a>
         </li>
       </ul>
       @endauth @auth
@@ -62,6 +62,6 @@
   <div class="container p-2 mt-2">
     @yield('content')
   </div>
-  <script src="/sklepgiery/public/js/app.js"></script>
+  <script src="/js/app.js"></script>
 </body>
 </html>
