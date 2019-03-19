@@ -11,8 +11,9 @@ use App\Models\Gatunek;
 use App\Models\KodRabatowy;
 use App\Models\Faktura;
 use App\Models\Status;
-//use App\Models\Zamownienie;
 use App\Models\Uzytkownik;
+use App\Models\Zamowienie;
+
 
 class DashboardController extends Controller
 {
@@ -21,7 +22,7 @@ class DashboardController extends Controller
         $this->middleware("user.is.admin");
     }
 
-    public function index() 
+    public function index()
     {
         $producent = Producent::count();
         $gra = Gra::count();
@@ -29,9 +30,17 @@ class DashboardController extends Controller
         $kodRabatowy = KodRabatowy::count();
         $faktura = Faktura::count();
         $status = Status::count();
-        //$Zamowienie = Zamownienie::count();
+        $zamowienie = Zamowienie::count();
         $uzytkownik = Uzytkownik::count();
 
-        return view("dashboard.index");
+        return view("dashboard.index", 
+        ["producent" => $producent, 
+        "gra" => $gra,
+        "gatunek" => $gatunek, 
+        "kodRabatowy" => $kodRabatowy, 
+        "faktura" => $faktura, 
+        "status" => $status,
+        "zamowienie" => $zamowienie,
+        "uzytkownik" => $uzytkownik]);
     }
 }

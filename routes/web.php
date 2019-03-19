@@ -14,6 +14,8 @@
 Route::get('/', 'Shop\ShopController@index');
 
 Route::get('/domek', 'User\UserController@index');
+Route::get('/koszyk', 'User\Orders\CartController@index');
+
 Route::get('/biblioteka', 'User\LibraryController@index');
 
 Route::get('/koszyk', 'User\Orders\CartController@index');
@@ -31,7 +33,6 @@ Route::get('/panel', 'Dashboard\DashboardController@index');
 Route::get('/panel/giery', 'Dashboard\Games\GameController@index');
 Route::get('/panel/giery/dodaj', 'Dashboard\Games\GameAddController@showForm');
 Route::post('/panel/giery/dodaj', 'Dashboard\Games\GameAddController@add');
-Route::get('/panel/giery/{id}', 'Dashboard\Games\GameController@redirect');
 Route::get('/panel/giery/{id}/edytuj', 'Dashboard\Games\GameEditController@showForm');
 Route::post('/panel/giery/{id}/edytuj', 'Dashboard\Games\GameEditController@save');
 Route::get('/panel/giery/{id}/usun', 'Dashboard\Games\GameRemoveController@remove');
@@ -48,19 +49,23 @@ Route::get('/panel/kody/{id}/usun', 'Dashboard\Discounts\DiscountRemoveControlle
 Route::get('/panel/producenci', 'Dashboard\Producers\ProducerController@index');
 Route::get('/panel/producenci/dodaj', 'Dashboard\Producers\ProducerAddController@showForm');
 Route::post('/panel/producenci/dodaj', 'Dashboard\Producers\ProducerAddController@add');
-Route::get('/panel/producenci/{id}', 'Dashboard\Producers\ProducerController@redirect');
 Route::get('/panel/producenci/{id}/edytuj', 'Dashboard\Producers\ProducerEditController@showForm');
 Route::post('/panel/producenci/{id}/edytuj', 'Dashboard\Producers\ProducerEditController@save');
 Route::get('/panel/producenci/{id}/usun', 'Dashboard\Producers\ProducerRemoveController@remove');
 
 Route::get('/panel/gatunki', 'Dashboard\Genres\GenreController@index');
 Route::get('/panel/gatunki/dodaj', 'Dashboard\Genres\GenreAddController@showForm');
-Route::get('/panel/gatunki/{id}', 'Dashboard\Genres\GenreController@redirect');
 Route::get('/panel/gatunki/{id}/edytuj', 'Dashboard\Genres\GenreEditController@showForm');
 Route::post('/panel/gatunki/{id}/edytuj', 'Dashboard\Genres\GenreEditController@save');
 Route::get('/panel/gatunki/{id}/usun', 'Dashboard\Genres\GenreRemoveController@remove');
 Route::post('/panel/gatunki/dodaj', 'Dashboard\Genres\GenreAddController@add');
-Route::post('/panel/gatunki/dodaj', 'Dashboard\Genres\GenreAddController@add');
+
+Route::get('/panel/uzytkownicy', 'Dashboard\Users\UserController@index');
+Route::get('/panel/uzytkownicy/{id}/edytuj', 'Dashboard\Users\UserEditController@showForm');
+Route::post('/panel/uzytkownicy/{id}/edytuj', 'Dashboard\Users\UserEditController@save');
+Route::get('/panel/uzytkownicy/{id}/usun', 'Dashboard\Users\UserRemoveController@remove');
+
+Route::get('/panel/zamowienia', 'Dashboard\Orders\OrderController@index');
 
 Route::get('/wyloguj', 'User\Auth\LogoutController@logout');
 

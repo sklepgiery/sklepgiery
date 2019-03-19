@@ -1,24 +1,29 @@
 @extends('layouts.dashboard')
 
-@section('title', 'Edytuj producenta')
+@section('title', 'Edytuj Prodcenta')
 
 @section('content')
-    @if ($errors->any())
+    <div class="col-md-4 m-auto card p-3">
+        @if ($errors->any())
         <div class="alert alert-danger">
             <ul>
-                @foreach ($errors->all() as $error)
-                    <li>{{ $error }}</li>
-                @endforeach
+            @foreach ($errors->all() as $error)
+              <li>{{ $error }}</li>
+            @endforeach
             </ul>
         </div>
-    @endif
+        @endif
 
-    <p>Edytujesz {{$producer->nazwa}}</p>
-    <form method="POST">
-        @csrf
-        Nazwa:<input type="text" name='nazwa' value="{{$producer->nazwa}}"><br>
-        <input type="submit" value='Zapisz Producencika'>
-    </form>
+        <form method="POST">
+            @csrf
+            <h2>Edytujesz {{$producer->nazwa}}</h2>
+            <div class="form-group">
+                <label for="name">Nazwa producenta:</label>
+                <input type="text" class="form-control" id="name" name="nazwa" value="{{$producer->nazwa}}" required>
+            </div>
+            <input type="submit" class="btn btn-block btn-primary" value='Dodaj Producencika'>
+        </form>
 
-    <a href="{{ action('Dashboard\Producers\ProducerController@index') }}">Nie chcesz edytować? nie ma problemu!</a>
+        <a href="{{ action('Dashboard\Producers\ProducerController@index') }}">Nie chcesz dodać? nie ma problemu!</a>
+    </div>
 @endsection

@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <title>{{config("app.name")}} - Panel - @yield('title')</title>
-        <link rel="stylesheet" href="/css/app.css" type="text/css" />
+        <link rel="stylesheet" href="/sklepgiery/public/css/app.css" type="text/css" />
 
     </head>
     <body>
@@ -18,7 +18,7 @@
                 <a class="navbar-brand" href="{{action('Dashboard\DashboardController@index')}}">Panel Admina</a>
                 <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
                 <li class="nav-item">
-                    <a class="nav-link" href="">Strona główna</a>
+                    <a class="nav-link" href="{{ action('Shop\ShopController@index') }}">Strona główna</a>
                 </li>
                 </ul>
                 @auth
@@ -38,6 +38,6 @@
         <div class="content dashboard">
             @yield('content')
         </div>
-        <script src="/js/app.js"></script>
+        <script src="/sklepgiery/public/js/app.js"></script>
     </body>
 </html>

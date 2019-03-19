@@ -36,7 +36,6 @@ class Uzytkownik extends Authenticatable
 
         return $koszyk;
     }
-
     public function getGryAttribute() {
         $gotoweStatus = Status::where("nazwa", "Gotowe")->first();
 
