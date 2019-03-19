@@ -46,18 +46,18 @@
         <div class="col-sm-4">
             <div class="card">
                 <div class="card-body">
-                    <h5 class="card-title">Giery</h5>
-                    <p class="card-text">ilość gier: #</p>
-                    <a href="#" class="btn btn-primary">Przejdź do gier</a>
+                    <h5 class="card-title">Zamówienia</h5>
+                    <p class="card-text">ilość Zamowień: {{$zamowienie}}</p>
+                    <a href="{{ action('Dashboard\Orders\OrderController@index') }}" class="btn btn-primary">Przejdź do Zamówień</a>
                 </div>
             </div>
         </div>
         <div class="col-sm-4">
             <div class="card">
                 <div class="card-body">
-                    <h5 class="card-title">Gatunki</h5>
-                    <p class="card-text">ilość gatunkow: #</p>
-                    <a href="#" class="btn btn-primary">Przejdź do gatunkow</a>
+                    <h5 class="card-title">Użytkownicy</h5>
+                <p class="card-text">Liczba Użytkowników: {{ $uzytkownik }}</p>
+                <a href="{{ action('Dashboard\Users\UserController@index') }}" class="btn btn-primary">Przejdź do Użytkowników</a>
                 </div>
             </div>
         </div>

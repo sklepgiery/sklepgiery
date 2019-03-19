@@ -13,9 +13,4 @@ class ProducerController extends DashBoardController
         $producers = Producent::with('gry')->get();
         return view("dashboard.producers.index", ['producers' => $producers]);
     }
-
-    public function redirect($id)
-    {   
-        return redirect()->action("Dashboard\Genres\ProducerEditController@showForm", $id);
-    }
 }

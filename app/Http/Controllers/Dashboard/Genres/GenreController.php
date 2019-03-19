@@ -13,9 +13,4 @@ class GenreController extends DashBoardController
         $gatuneks = Gatunek::with("gry")->get();
         return view("dashboard.genres.index", ['gatuneczeks' => $gatuneks]);
     }
-
-    public function redirect($id)
-    {
-        return redirect()->action("Dashboard\Genres\GenreEditController@showForm", $id);
-    }
 }

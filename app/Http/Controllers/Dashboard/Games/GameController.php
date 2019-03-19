@@ -13,9 +13,4 @@ class GameController extends DashboardController
         $gry = Gra::get();
         return view("dashboard.games.index", ['gry' => $gry]);
     }
-
-    public function redirect($id)
-    {
-        return redirect()->action("Dashboard\Games\GameEditController@showForm", $id);
-    }
 }
