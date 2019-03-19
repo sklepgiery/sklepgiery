@@ -16,6 +16,17 @@ Route::get('/', 'Shop\ShopController@index');
 Route::get('/domek', 'User\UserController@index');
 Route::get('/koszyk', 'User\Orders\CartController@index');
 
+Route::get('/biblioteka', 'User\LibraryController@index');
+
+Route::get('/koszyk', 'User\Orders\CartController@index');
+Route::get('/koszyk/dodaj/{graId}', 'User\Orders\CartController@addGame');
+Route::get('/koszyk/usun/{graId}', 'User\Orders\CartController@removeGame');
+Route::post('/koszyk/kod-rabatowy/dodaj', 'User\Orders\CartController@addDiscountCode');
+Route::get('/koszyk/kod-rabatowy/usun', 'User\Orders\CartController@removeDiscountCode');
+Route::get('/koszyk/faktura/dodaj', 'User\Orders\CartController@addInvoice');
+Route::post('/koszyk/faktura/edytuj', 'User\Orders\CartController@editInvoice');
+Route::get('/koszyk/faktura/usun', 'User\Orders\CartController@removeInvoice');
+Route::get('/koszyk/zakoncz', 'User\Orders\CartController@end');
 
 Route::get('/panel', 'Dashboard\DashboardController@index');
 
@@ -29,6 +40,7 @@ Route::get('/panel/giery/{id}/usun', 'Dashboard\Games\GameRemoveController@remov
 Route::get('/panel/kody', 'Dashboard\Discounts\DiscountController@index');
 Route::get('/panel/kody/dodaj', 'Dashboard\Discounts\DiscountAddController@showForm');
 Route::post('/panel/kody/dodaj', 'Dashboard\Discounts\DiscountAddController@add');
+Route::get('/panel/kody/{id}', 'Dashboard\Discounts\DiscountController@redirect');
 Route::get('/panel/kody/{id}/edytuj', 'Dashboard\Discounts\DiscountEditController@showForm');
 Route::post('/panel/kody/{id}/edytuj', 'Dashboard\Discounts\DiscountEditController@save');
 Route::get('/panel/kody/{id}/usun', 'Dashboard\Discounts\DiscountRemoveController@remove');

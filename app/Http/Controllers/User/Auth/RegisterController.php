@@ -9,6 +9,7 @@ use Illuminate\Validation\Rule;
 use Illuminate\Support\Facades\Hash;
 
 use App\Models\Uzytkownik;
+use Illuminate\Support\Facades\Auth;
 
 class RegisterController extends Controller
 {
@@ -54,6 +55,8 @@ class RegisterController extends Controller
         }
 
         $nowyCzlonekKlanu->save();
+
+        Auth::login($nowyCzlonekKlanu);
 
         return view('user.auth.registered');
     }
