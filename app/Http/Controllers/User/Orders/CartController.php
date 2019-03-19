@@ -38,6 +38,41 @@ class CartController extends UserController
             $koszyk->gry()->attach($gra);
         }
 
+        return redirect()->back();
+    }
+
+    public function removeGame($graId) {
+        $gra = Gra::find($graId);
+        if (! $gra) {
+            return redirect()->back();
+        }
+        
+        $user = Auth::user();
+
+        $koszyk = $user->koszyk;
+
+        if (! $koszyk) {
+            redirect()->back();
+        }
+
+        if ($koszyk->gry->contains($gra)) {
+            $koszyk->gry()->detach($gra);
+        }
+
+        return redirect()->back();
+    }
+
+    public function end() {
+        $user = Auth::user();
+
+        $koszyk = $user->koszyk;
+
+        if (! $koszyk) {
+            redirect()->back();
+        }
+
+        
+
         return redirect()->action("User\Orders\CartController@index");
     }
 }
