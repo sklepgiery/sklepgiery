@@ -16,10 +16,10 @@ class CreateZamowieniaTable extends Migration
         Schema::create('zamowienia', function (Blueprint $table) {
             $table->increments('id');
             $table->unsignedInteger('uzytkownik_id');
-            $table->unsignedInteger('faktura_id');
+            $table->unsignedInteger('faktura_id')->nullable();
             $table->unsignedInteger('status_id');
             $table->decimal('wartosc',8,2);
-            $table->unsignedInteger('kod_rabatowy_id');
+            $table->unsignedInteger('kod_rabatowy_id')->nullable();
 
             $table->foreign('uzytkownik_id')->references('id')->on('uzytkownicy');
             $table->foreign('faktura_id')->references('id')->on('faktury');
