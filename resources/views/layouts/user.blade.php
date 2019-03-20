@@ -24,7 +24,7 @@
         </li>
         @endif
         <li class="nav-item">
-          <a class="nav-link" href="{{ action('User\LibraryController@index') }}">Twoje gry</a>
+          <a class="nav-link" href="{{ action('User\Orders\LibraryController@index') }}">Twoje gry</a>
         </li>
       </ul>
       @endauth @auth
