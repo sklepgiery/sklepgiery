@@ -22,6 +22,9 @@ class DiscountEditController extends DashBoardController
     {
         $validatedData = $request->validate([
             'nazwa' => 'required',
+            'znizka_procentowo' => 'required|numeric',
+            'data_rozpoczecia' => 'required|date',
+            'data_zakonczenia' => 'required|date',
         ]);
 
         $code = KodRabatowy::find($id);
@@ -31,6 +34,10 @@ class DiscountEditController extends DashBoardController
         }
 
         $code->nazwa = $validatedData["nazwa"];
+        $code->znizka_procentowo = $validatedData["znizka_procentowo"];
+        $code->data_rozpoczecia = $validatedData["data_rozpoczecia"];
+        $code->data_zakonczenia = $validatedData["data_zakonczenia"];
+
         $code->save();
 
         return redirect()->action("Dashboard\Discounts\DiscountController@index");

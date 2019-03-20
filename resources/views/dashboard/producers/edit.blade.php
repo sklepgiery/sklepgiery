@@ -21,7 +21,7 @@
                 <label for="name">Nazwa producenta:</label>
                 <input type="text" class="form-control" id="name" name="nazwa" value="{{$producer->nazwa}}" required>
             </div>
-            <input type="submit" class="btn btn-block btn-primary" value='Dodaj Producencika'>
+            <input type="submit" class="btn btn-block btn-primary" value='Edytuj Producencika'>
         </form>
 
         <a href="{{ action('Dashboard\Producers\ProducerController@index') }}">Nie chcesz dodać? nie ma problemu!</a>

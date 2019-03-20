@@ -1,6 +1,6 @@
 @extends('layouts.dashboard')
 
-@section('title', 'Dodaj Kod rapatowy')
+@section('title', 'Dodaj Promocje')
 
 @section('content')
     
@@ -18,8 +18,12 @@
     <form method="POST">
         @csrf
         <div class="form-group">
-            <label for="nazwa">Nazwa kodu:</label>
-            <input type="text" class="form-control" id="nazwa" name="nazwa" placeholder="Nazwa" required>
+            <label for="gra">Gra:</label>
+            <select class="form-control" id="gra" name="gra_id">
+            @foreach ($gry as $gra)
+                <option value="{{$gra->id}}">{{ $gra->nazwa }}</option>
+            @endforeach
+            </select>
         </div>
         <div class="form-group">
             <label for="znizka_procentowo">Zniżka Procentowo:</label>
@@ -35,7 +39,5 @@
         </div>
         <input type="submit" class="btn btn-block btn-primary" value='Dodaj!'>
     </form>
-
-    <a href="{{ action('Dashboard\Discounts\DiscountController@index') }}">Nie chcesz dodać? nie ma problemu!</a>
-
+    <a href="{{ action('Dashboard\Sales\SaleController@index') }}">Nie chcesz dodać? nie ma problemu!</a>
 @endsection

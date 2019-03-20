@@ -25,6 +25,7 @@ class UserEditController extends DashBoardController
         $validatedData = $request->validate([
             'imie' => 'required',
             'nazwisko' => 'required',
+            'password' => 'nullable',
             'plec' => [
                 'required',
                 Rule::in(['samica', 'samiec']),    

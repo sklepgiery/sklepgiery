@@ -13,6 +13,7 @@ use App\Models\Faktura;
 use App\Models\Status;
 use App\Models\Uzytkownik;
 use App\Models\Zamowienie;
+use App\Models\Promocja;
 
 
 class DashboardController extends Controller
@@ -32,6 +33,7 @@ class DashboardController extends Controller
         $status = Status::count();
         $zamowienie = Zamowienie::count();
         $uzytkownik = Uzytkownik::count();
+        $promocja = Promocja::count();
 
         return view("dashboard.index", 
         ["producent" => $producent, 
@@ -41,6 +43,7 @@ class DashboardController extends Controller
         "faktura" => $faktura, 
         "status" => $status,
         "zamowienie" => $zamowienie,
+        "promocja" => $promocja,
         "uzytkownik" => $uzytkownik]);
     }
 }
