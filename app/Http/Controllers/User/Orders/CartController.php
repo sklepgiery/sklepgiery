@@ -172,7 +172,9 @@ class CartController extends UserController
             return redirect()->back();
         }
 
+        $faktura = $koszyk->faktura;
         $koszyk->faktura()->dissociate();
+        $faktura->delete();
         $koszyk->save();
 
         return redirect()->back();
