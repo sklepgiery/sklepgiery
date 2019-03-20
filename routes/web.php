@@ -60,12 +60,26 @@ Route::post('/panel/gatunki/{id}/edytuj', 'Dashboard\Genres\GenreEditController@
 Route::get('/panel/gatunki/{id}/usun', 'Dashboard\Genres\GenreRemoveController@remove');
 Route::post('/panel/gatunki/dodaj', 'Dashboard\Genres\GenreAddController@add');
 
+Route::get('/panel/promocje', 'Dashboard\Sales\SaleController@index');
+Route::get('/panel/promocje/dodaj', 'Dashboard\Sales\SaleAddController@showForm');
+Route::get('/panel/promocje/{id}/edytuj', 'Dashboard\Sales\SaleEditController@showForm');
+Route::post('/panel/promocje/{id}/edytuj', 'Dashboard\Sales\SaleEditController@save');
+Route::get('/panel/promocje/{id}/usun', 'Dashboard\Sales\SaleRemoveController@remove');
+Route::post('/panel/promocje/dodaj', 'Dashboard\Sales\SaleAddController@add');
+
 Route::get('/panel/uzytkownicy', 'Dashboard\Users\UserController@index');
 Route::get('/panel/uzytkownicy/{id}/edytuj', 'Dashboard\Users\UserEditController@showForm');
 Route::post('/panel/uzytkownicy/{id}/edytuj', 'Dashboard\Users\UserEditController@save');
 Route::get('/panel/uzytkownicy/{id}/usun', 'Dashboard\Users\UserRemoveController@remove');
 
+Route::get('/panel/faktury', 'Dashboard\Facturies\FactureController@index');
+Route::get('/panel/faktury/{id}/edytuj', 'Dashboard\Facturies\FactureEditController@showForm');
+Route::post('/panel/faktury/{id}/edytuj', 'Dashboard\Facturies\FactureEditController@save');
+Route::get('/panel/faktury/{id}/usun', 'Dashboard\Facturies\FactureRemoveController@remove');
+
+
 Route::get('/panel/zamowienia', 'Dashboard\Orders\OrderController@index');
+
 
 Route::get('/wyloguj', 'User\Auth\LogoutController@logout');
 

@@ -33,7 +33,7 @@
             </div>
         </div>
     </div>
-    <div class="row">
+    <div class="row mb-2">
         <div class="col-sm-4">
             <div class="card">
                 <div class="card-body">
@@ -58,6 +58,26 @@
                     <h5 class="card-title">Użytkownicy</h5>
                 <p class="card-text">Liczba Użytkowników: {{ $uzytkownik }}</p>
                 <a href="{{ action('Dashboard\Users\UserController@index') }}" class="btn btn-primary">Przejdź do Użytkowników</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row mb-2">
+        <div class="col-sm-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Faktury</h5>
+                <p class="card-text">Liczba Faktur: {{ $faktura }}</p>
+                <a href="{{ action('Dashboard\Facturies\FactureController@index') }}" class="btn btn-primary">Przejdź do Faktur</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-4">
+            <div class="card">
+                <div class="card-body">
+                <h5 class="card-title">Promocje</h5>
+                <p class="card-text">Liczba Promocji: {{ $promocja }}</p>
+                <a href="{{ action('Dashboard\Sales\SaleController@index') }}" class="btn btn-primary">Przejdź do Promocji</a>
                 </div>
             </div>
         </div>

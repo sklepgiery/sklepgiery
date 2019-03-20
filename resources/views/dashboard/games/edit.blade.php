@@ -53,7 +53,7 @@
                         @endforeach
                     </select>
             </div>
-            <input type="submit" class="btn btn-block btn-primary" value='Dodaj Giere'>
+            <input type="submit" class="btn btn-block btn-primary" value='Edytuj'>
         </form>
     
         <a href="{{ action('Dashboard\Games\GameController@index') }}">Nie chcesz dodać? nie ma problemu!</a>
