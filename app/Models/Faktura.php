@@ -13,4 +13,9 @@ class Faktura extends Model
     {
         return $this->belongsTo('App\Models\Uzytkownik');
     }
+
+    public function zamowienia()
+    {
+        return $this->hasMany('App\Models\Zamowienie');
+    }
 }
