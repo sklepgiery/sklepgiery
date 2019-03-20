@@ -20,7 +20,7 @@
                 <td>{{ $zamowienie->id }}</td>
                 <td>{{ $zamowienie->uzytkownik_id }}</td>
                 <td>{{ $zamowienie->faktura_id }}</td>
-                <td>{{ $zamowienie->status_id->nazwa }}</td>
+                <td>{{ $zamowienie->status->nazwa }}</td>
                 <td>{{ $zamowienie->wartosc }}</td>
                 <td>{{ $zamowienie->kod_rabatowy_id }}</td>
             </tr>

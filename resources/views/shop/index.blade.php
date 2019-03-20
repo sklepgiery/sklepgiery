@@ -13,8 +13,10 @@
       <div class="p-1">Niesamowita cena: {{$gra->cena}}zł</div>
       @if (! Auth::user())
       <div><a href="{{ action('User\Orders\CartController@addGame', $gra->id) }}" class="btn btn-success">Dodaj do koszyka</a></div>
-      @elseif (! Auth::user()->gry->contains($gra) && (Auth::user()->koszyk && ! Auth::user()->koszyk->gry->contains($gra)))
+      @else
+      @can('buy', $gra)
       <div><a href="{{ action('User\Orders\CartController@addGame', $gra->id) }}" class="btn btn-success">Dodaj do koszyka</a></div>
+      @endcan
       @endif
     </div>
   @endforeach
