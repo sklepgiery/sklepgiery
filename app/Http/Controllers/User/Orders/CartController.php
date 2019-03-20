@@ -39,7 +39,7 @@ class CartController extends UserController
             $koszyk->save();
         }
 
-        if (!$koszyk->gry->contains($gra)) {
+        if ($user->can("buy", $gra)) {
             $koszyk->gry()->attach($gra);
         }
 
@@ -195,6 +195,9 @@ class CartController extends UserController
 
         $faktura = $koszyk->faktura;
         if ($faktura) {
+            if ($faktura->imie_nazwisko == "") {
+                return redirect()->back()->withErrors(["faktura"=> "Prosimy o wypełnienie faktury i kliknięcie przycisku zapisz fakturę"]);
+            }
             $faktura->wartosc = $koszyk->wartosc;
             $faktura->save();
         }

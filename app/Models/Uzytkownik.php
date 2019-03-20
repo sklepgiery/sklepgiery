@@ -40,17 +40,19 @@ class Uzytkownik extends Authenticatable
     {
         $gotoweStatus = Status::where("nazwa", "Gotowe")->first();
 
-        $zamowienia = Zamowienie::with("gry")->where([
+        $zamowienia = Zamowienie::with("gry:gry.id")->where([
             ["status_id", $gotoweStatus->id],
             ["uzytkownik_id", $this->id]
         ])->get();
 
-        $gry = [];
+        $gryId = [];
 
         foreach ($zamowienia as $zamowienie) {
-            $gry = array_merge($gry, $zamowienie->gry->all());
+            foreach ($zamowienie->gry as $gra) {
+                array_push($gryId, $gra->id);
+            }
         }
 
-        return collect($gry);
+        return Gra::whereIn("id", $gryId)->get();
     }
 }

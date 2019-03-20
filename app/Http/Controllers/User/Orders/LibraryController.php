@@ -10,6 +10,8 @@ class LibraryController extends UserController
 {
     public function index()
     {
-        return view('user.library');
+        $user = Auth::user();
+        $gry = $user->gry;
+        return view('user.library', ["gry" => $gry]);
     }
 }

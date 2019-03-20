@@ -22,6 +22,13 @@ class GamesPolicy
 
     public function buy(Uzytkownik $user, Gra $game)
     {
+        if ($user->gry->contains($game)) {
+            return false;
+        }
+
+        if (!is_null($user->koszyk) && $user->koszyk->gry->contains($game)) {
+            return false;
+        }
 
         return true;
     }

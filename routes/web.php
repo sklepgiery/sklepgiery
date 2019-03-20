@@ -16,7 +16,7 @@ Route::get('/', 'Shop\ShopController@index');
 Route::get('/domek', 'User\UserController@index');
 Route::get('/koszyk', 'User\Orders\CartController@index');
 
-Route::get('/biblioteka', 'User\LibraryController@index');
+Route::get('/biblioteka', 'User\Orders\LibraryController@index');
 
 Route::get('/koszyk', 'User\Orders\CartController@index');
 Route::get('/koszyk/dodaj/{graId}', 'User\Orders\CartController@addGame');
