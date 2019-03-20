@@ -11,9 +11,12 @@
       <div class="p-1 border-bottom"><h3>{{$gra->nazwa}}</h3></div>
       <div class="p-1 border-bottom">{{$gra->opis}}</div>
       <div class="p-1">Niesamowita cena: {{$gra->cena}}zł</div>
+      <?php 
+        dd( Auth::user()->gry);
+      ?>
       @if (! Auth::user())
       <div><a href="{{ action('User\Orders\CartController@addGame', $gra->id) }}" class="btn btn-success">Dodaj do koszyka</a></div>
-      @elseif (! Auth::user()->gry->contains($gra) && (Auth::user()->koszyk && ! Auth::user()->koszyk->gry->contains($gra)))
+      @elseif (! Auth::user()->gry->contains($gra) && ( (Auth::user()->koszyk && ! Auth::user()->koszyk->gry->contains($gra)) || ! Auth::user()->koszyk ))
       <div><a href="{{ action('User\Orders\CartController@addGame', $gra->id) }}" class="btn btn-success">Dodaj do koszyka</a></div>
       @endif
     </div>

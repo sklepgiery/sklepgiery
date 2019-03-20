@@ -32,25 +32,23 @@ class Uzytkownik extends Authenticatable
         $koszyk = Zamowienie::where([
             ["status_id", $koszykStatus->id],
             ["uzytkownik_id", $this->id]
-            ])->first();
+        ])->first();
 
         return $koszyk;
     }
-    public function getGryAttribute() {
+    public function getGryAttribute()
+    {
         $gotoweStatus = Status::where("nazwa", "Gotowe")->first();
-
-        $gry = [];
 
         $zamowienia = Zamowienie::with("gry")->where([
             ["status_id", $gotoweStatus->id],
             ["uzytkownik_id", $this->id]
-            ])->get();
+        ])->get();
 
+        $gry = [];
 
         foreach ($zamowienia as $zamowienie) {
-            foreach ($zamowienie->gry as $gra) {
-                array_push($gry, $gra);
-            }
+            $gry = array_merge($gry, $zamowienie->gry->all());
         }
 
         return collect($gry);
