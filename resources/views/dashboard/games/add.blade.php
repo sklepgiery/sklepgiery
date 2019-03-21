@@ -14,7 +14,7 @@
         </div>
     @endif
 
-    <form method="POST">
+    <form method="POST" enctype="multipart/form-data">
         @csrf
         <div class="form-group">
             <label for="nazwa">Nazwa gry:</label>
@@ -38,7 +38,7 @@
         </div>
         <div class="form-group">
             <label for="zdjecie">Zdjęcie:</label>
-            <input type="text" class="form-control" id="zdjecie" name="zdjecie" placeholder="sciezka.jpg" required>
+            <input type="file" class="form-control" id="zdjecie" name="zdjecie" accept="image/png, image/jpeg" required>
         </div>
         <div class="form-group">
                 <label for="gatunki">Gatunki:</label>

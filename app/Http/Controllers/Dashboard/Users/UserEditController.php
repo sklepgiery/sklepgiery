@@ -3,14 +3,14 @@
 namespace App\Http\Controllers\Dashboard\Users;
 
 use Illuminate\Http\Request;
-use App\Http\Controllers\Dashboard\DashBoardController;
+use App\Http\Controllers\Dashboard\DashboardController;
 
 use Illuminate\Validation\Rule;
 use Illuminate\Support\Facades\Hash;
 
 use App\Models\Uzytkownik;
 
-class UserEditController extends DashBoardController
+class UserEditController extends DashboardController
 {
     public function showForm($id)
     {

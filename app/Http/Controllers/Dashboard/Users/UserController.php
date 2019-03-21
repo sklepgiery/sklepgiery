@@ -3,11 +3,11 @@
 namespace App\Http\Controllers\Dashboard\Users;
 
 use Illuminate\Http\Request;
-use App\Http\Controllers\Dashboard\DashBoardController;
+use App\Http\Controllers\Dashboard\DashboardController;
 
 use App\Models\Uzytkownik;
 
-class UserController extends DashBoardController
+class UserController extends DashboardController
 {
     public function index()
     {   

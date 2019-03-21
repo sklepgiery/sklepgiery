@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers\Dashboard\Producers;
 
-use App\Http\Controllers\Dashboard\DashBoardController;
+use App\Http\Controllers\Dashboard\DashboardController;
 
 use App\Models\Producent;
 
-class ProducerRemoveController extends DashBoardController
+class ProducerRemoveController extends DashboardController
 {
     public function remove($id)
     {

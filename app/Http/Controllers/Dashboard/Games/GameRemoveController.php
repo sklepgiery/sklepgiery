@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Dashboard\Games;
 
-use App\Http\Controllers\Dashboard\DashBoardController;
+use App\Http\Controllers\Dashboard\DashboardController;
 
 use App\Models\Gra;
 

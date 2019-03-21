@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers\Dashboard\Genres;
 
-use App\Http\Controllers\Dashboard\DashBoardController;
+use App\Http\Controllers\Dashboard\DashboardController;
 use App\Models\Gatunek;
 
-class GenreRemoveController extends DashBoardController
+class GenreRemoveController extends DashboardController
 {
     public function remove($id)
     {

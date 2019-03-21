@@ -28,4 +28,29 @@ class Gra extends Model
     {
         return $this->belongsToMany('App\Models\Zamowienie', 'elementy_zamowienia');
     }
+
+    public function getCurrentSaleAttribute()
+    {
+        $lastSale = $this->promocje->last();
+        if (! $lastSale) {
+            return null;
+        }
+
+        $now = strtotime("now");
+        if (strtotime($lastSale->data_rozpoczecia) < $now && strtotime($lastSale->data_zakonczenia) > $now) {
+            return $lastSale;
+        } else {
+            return null;
+        }
+    }
+
+    public function getCurrentPriceAttribute()
+    {
+        $currentSale = $this->currentSale;
+        if (! $currentSale) {
+            return $this->cena;
+        }
+
+        return $this->cena * ((100 - $currentSale->znizka_procentowo) / 100);
+    }
 }

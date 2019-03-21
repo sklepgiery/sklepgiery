@@ -3,11 +3,11 @@
 namespace App\Http\Controllers\Dashboard\Producers;
 
 use Illuminate\Http\Request;
-use App\Http\Controllers\Dashboard\DashBoardController;
+use App\Http\Controllers\Dashboard\DashboardController;
 
 use App\Models\Producent;
 
-class ProducerEditController extends DashBoardController
+class ProducerEditController extends DashboardController
 {
     public function showForm($id)
     {

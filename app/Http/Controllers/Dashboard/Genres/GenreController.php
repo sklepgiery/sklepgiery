@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers\Dashboard\Genres;
 
-use App\Http\Controllers\Dashboard\DashBoardController;
+use App\Http\Controllers\Dashboard\DashboardController;
 
 use App\Models\Gatunek;
 
-class GenreController extends DashBoardController
+class GenreController extends DashboardController
 {
     public function index()
     {
