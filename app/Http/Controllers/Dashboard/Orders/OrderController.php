@@ -3,11 +3,11 @@
 namespace App\Http\Controllers\Dashboard\Orders;
 
 use Illuminate\Http\Request;
-use App\Http\Controllers\Dashboard\DashBoardController;
+use App\Http\Controllers\Dashboard\DashboardController;
 
 use App\Models\Zamowienie;
 
-class OrderController extends DashBoardController
+class OrderController extends DashboardController
 {
     public function index()
     {

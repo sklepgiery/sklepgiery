@@ -36,8 +36,8 @@
         <tbody>
           @foreach ($koszyk->gry as $gra)
             <tr>
-              <th class="pt-3">{{$gra->nazwa}}</th>
-              <td class="pt-3">{{$gra->cena}} zł</td>
+              <th class="pt-3"> <img class="cart-image" src="{{Storage::url($gra->zdjecie)}}"> {{$gra->nazwa}}</th>
+              <td class="pt-3">{{$gra->currentPrice}} zł</td>
               <td><a class="btn btn-sm btn-danger" href="{{ action('User\Orders\CartController@removeGame', $gra->id) }}">Usuń</a></td>
             </tr>
           @endforeach
@@ -64,7 +64,7 @@
         </form>
         @else
         <div class="row">
-          <h2 class="col-md-6">Użyto kodu rabatowego: {{$koszyk->kodRabatowy->nazwa}}</h2>
+          <h2 class="col-md-6">Użyto kodu rabatowego: {{$koszyk->kodRabatowy->nazwa}} -{{(int)$koszyk->kodRabatowy->znizka_procentowo}}%</h2>
           <div class="col-md-6">
             <a href="{{ action('User\Orders\CartController@removeDiscountCode') }}" class="btn btn-danger col-md-6">Usuń kod rabatowy</a>
           </div>
@@ -151,9 +151,9 @@
       <div class="col-md-12">
         <h2 class="mb-0">Łącznie do zapłaty: 
           @if($koszyk->kodRabatowy)
-          {{round($koszyk->gry->sum("cena") * $koszyk->kodRabatowy->znizka_procentowo, 2)}}
+          {{round($koszyk->gry->sum("currentPrice") * ((100 - $koszyk->kodRabatowy->znizka_procentowo) / 100), 2)}}
           @else
-          {{$koszyk->gry->sum("cena")}}
+          {{$koszyk->gry->sum("currentPrice")}}
           @endif zł</h2>
       </div>
     </div>

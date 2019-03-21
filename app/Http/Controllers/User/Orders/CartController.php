@@ -190,9 +190,9 @@ class CartController extends UserController
         }
 
         if ($koszyk->kodRabatowy) {
-            $koszyk->wartosc = round($koszyk->gry->sum("cena") * $koszyk->kodRabatowy->znizka_procentowo, 2);
+            $koszyk->wartosc = round($koszyk->gry->sum("currentPrice") * ((100 - $koszyk->kodRabatowy->znizka_procentowo) / 100), 2);
         } else {
-            $koszyk->wartosc = round($koszyk->gry->sum("cena"), 2);
+            $koszyk->wartosc = round($koszyk->gry->sum("currentPrice"), 2);
         }
 
         $faktura = $koszyk->faktura;

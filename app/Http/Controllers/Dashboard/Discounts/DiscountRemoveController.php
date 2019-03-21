@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers\Dashboard\Discounts;
 
-use App\Http\Controllers\Dashboard\DashBoardController;
+use App\Http\Controllers\Dashboard\DashboardController;
 
 use App\Models\KodRabatowy;
 
-class DiscountRemoveController extends DashBoardController
+class DiscountRemoveController extends DashboardController
 {
     public function remove($id)
     {

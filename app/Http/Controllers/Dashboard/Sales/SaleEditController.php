@@ -3,12 +3,12 @@
 namespace App\Http\Controllers\Dashboard\Sales;
 
 use Illuminate\Http\Request;
-use App\Http\Controllers\Dashboard\DashBoardController;
+use App\Http\Controllers\Dashboard\DashboardController;
 
 use App\models\Promocja;
 use App\models\Gra;
 
-class SaleEditController extends DashBoardController
+class SaleEditController extends DashboardController
 {
     public function showForm($id)
     {

@@ -3,10 +3,10 @@
 namespace App\Http\Controllers\Dashboard\Genres;
 
 use Illuminate\Http\Request;
-use App\Http\Controllers\Dashboard\DashBoardController;
+use App\Http\Controllers\Dashboard\DashboardController;
 use App\Models\Gatunek;
 
-class GenreEditController extends DashBoardController
+class GenreEditController extends DashboardController
 {
     public function showForm($id)
     {

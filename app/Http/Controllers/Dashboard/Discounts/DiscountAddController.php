@@ -3,11 +3,11 @@
 namespace App\Http\Controllers\Dashboard\Discounts;
 
 use Illuminate\Http\Request;
-use App\Http\Controllers\Dashboard\DashBoardController;
+use App\Http\Controllers\Dashboard\DashboardController;
 
 use App\Models\KodRabatowy;
 
-class DiscountAddController extends DashBoardController
+class DiscountAddController extends DashboardController
 {
     public function showForm()
     {

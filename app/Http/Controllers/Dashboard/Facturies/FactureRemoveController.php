@@ -3,11 +3,11 @@
 namespace App\Http\Controllers\Dashboard\Facturies;
 
 use Illuminate\Http\Request;
-use App\Http\Controllers\Dashboard\DashBoardController;
+use App\Http\Controllers\Dashboard\DashboardController;
 
 use App\Models\Faktura;
 
-class FactureRemoveController extends DashBoardController
+class FactureRemoveController extends DashboardController
 {
     public function remove($id)
     {

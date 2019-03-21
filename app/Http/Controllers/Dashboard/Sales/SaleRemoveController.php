@@ -3,11 +3,11 @@
 namespace App\Http\Controllers\Dashboard\Sales;
 
 use Illuminate\Http\Request;
-use App\Http\Controllers\Dashboard\DashBoardController;
+use App\Http\Controllers\Dashboard\DashboardController;
 
 use App\models\Promocja;
 
-class SaleRemoveController extends DashBoardController
+class SaleRemoveController extends DashboardController
 {
     public function remove($id)
     {

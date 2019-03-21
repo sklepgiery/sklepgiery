@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Dashboard\Games;
 
 use Illuminate\Http\Request;
-use App\Http\Controllers\Dashboard\DashBoardController;
+use App\Http\Controllers\Dashboard\DashboardController;
 
 use App\Models\Gra;
 use App\Models\Producent;
