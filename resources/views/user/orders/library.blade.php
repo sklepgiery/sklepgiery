@@ -8,7 +8,7 @@
   <h2>Twoje gry:</h2>
   <div class="row justify-content-center">
   @foreach ($gry as $gra)
-  <div class="col-4 mx-2 p-2 text-center card">
+  <div class="col-3 m-4 p-2 text-center card">
     <div><img class="main-page-image" src="{{Storage::url($gra->zdjecie)}}"></div>
     <div class="p-1 border-bottom"><h3>{{$gra->nazwa}}</h3></div>
     <div class="p-1"><a href="" class="btn btn-primary">Pobierz</a></div>
