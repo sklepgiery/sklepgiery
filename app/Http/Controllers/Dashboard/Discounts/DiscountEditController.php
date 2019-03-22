@@ -22,7 +22,7 @@ class DiscountEditController extends DashboardController
     {
         $validatedData = $request->validate([
             'nazwa' => 'required',
-            'znizka_procentowo' => 'required|numeric',
+            'znizka_procentowo' => 'required|numeric|between:0,100',
             'data_rozpoczecia' => 'required|date',
             'data_zakonczenia' => 'required|date',
         ]);

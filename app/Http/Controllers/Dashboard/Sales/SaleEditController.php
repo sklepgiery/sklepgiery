@@ -25,7 +25,7 @@ class SaleEditController extends DashboardController
     {
         $validatedData = $request->validate([
             'gra_id' => 'required|exists:gry,id',
-            'znizka_procentowo' => 'required|numeric',
+            'znizka_procentowo' => 'required|numeric|between:0,100',
             'data_rozpoczecia' => 'required|date',
             'data_zakonczenia' => 'required|date',
         ]);
