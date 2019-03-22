@@ -25,7 +25,13 @@
       <div class="p-3 border-bottom"><img class="main-page-image" src="{{Storage::url($gra->zdjecie)}}"></div>
       <div class="p-1 border-bottom"><h3>{{$gra->nazwa}}</h3></div>
       <div class="p-1 border-bottom">{{$gra->opis}}</div>
-      <div class="p-1">Niesamowita cena: {{$gra->currentPrice}}zł</div>
+      <div class="p-1">Niesamowita cena: 
+        @if($gra->currentSale)
+        <s>{{$gra->cena}}</s> {{$gra->currentPrice}}zł
+        @else
+        {{$gra->currentPrice}}zł
+        @endif
+      </div>
       @if (! Auth::user())
       <div><a href="{{ action('User\Orders\CartController@addGame', $gra->id) }}" class="btn btn-success">Dodaj do koszyka</a></div>
       @else
