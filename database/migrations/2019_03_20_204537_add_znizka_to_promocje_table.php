@@ -14,7 +14,7 @@ class AddZnizkaToPromocjeTable extends Migration
     public function up()
     {
         Schema::table('promocje', function (Blueprint $table) {
-            $table->decimal('znizka_procentowo', 4, 2);
+            $table->decimal('znizka_procentowo', 5, 2);
         });
     }
 

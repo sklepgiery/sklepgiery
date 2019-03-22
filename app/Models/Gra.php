@@ -51,6 +51,8 @@ class Gra extends Model
             return $this->cena;
         }
 
-        return $this->cena * ((100 - $currentSale->znizka_procentowo) / 100);
+        $cena = $this->cena * ((100 - $currentSale->znizka_procentowo) / 100);
+
+        return round($cena, 2);
     }
 }

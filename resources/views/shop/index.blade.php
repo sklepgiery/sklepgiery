@@ -21,7 +21,7 @@
   <h2 class="text-left">Wybierz coś z spośród {{$gry->count()}} gier:</h2>
   <div class="row justify-content-center">
   @foreach ($gry as $gra)
-    <div class="col-md-3 m-4 p-2 text-center card">
+    <div class="col-xl-3 m-4 p-2 text-center card">
       <div class="p-3 border-bottom"><img class="main-page-image" src="{{Storage::url($gra->zdjecie)}}"></div>
       <div class="p-1 border-bottom"><h3>{{$gra->nazwa}}</h3></div>
       <div class="p-1 border-bottom">{{$gra->opis}}</div>
