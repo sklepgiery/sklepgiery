@@ -21,17 +21,22 @@
   <h2 class="text-left">Wybierz coś z spośród {{$gry->count()}} gier:</h2>
   <div class="row justify-content-center">
   @foreach ($gry as $gra)
-    <div class="col-xl-3 m-4 p-2 text-center card">
-      <div class="p-3 border-bottom"><img class="main-page-image" src="{{Storage::url($gra->zdjecie)}}"></div>
-      <div class="p-1 border-bottom"><h3>{{$gra->nazwa}}</h3></div>
-      <div class="p-1 border-bottom">{{$gra->opis}}</div>
+    <div class="col-xl-3 m-4 p-2 text-center card justify-content-center">
+      <div class="p-3 main-page-image-container justify-content-center align-items-center d-flex"><img class="main-page-image" src="{{Storage::url($gra->zdjecie)}}"></div>
+      <div class="p-1"><h3>{{$gra->nazwa}}</h3></div>
+      <hr>
+      <div class="p-1">{{$gra->opis}}</div>
+      <hr>
       <div class="p-1">Niesamowita cena: 
         @if($gra->currentSale)
-        <s>{{$gra->cena}}</s> {{$gra->currentPrice}}zł
+        <s>{{$gra->cena}}</s> <b>{{$gra->currentPrice}}zł</b>
         @else
-        {{$gra->currentPrice}}zł
+        <b>{{$gra->currentPrice}}zł</b>
         @endif
       </div>
+      @if($gra->currentSale)
+      <div class="p-1"><h3 class="text-success">Promocja {{(int)$gra->currentSale->znizka_procentowo}}%!</h3></div>
+      @endif
       @if (! Auth::user())
       <div><a href="{{ action('User\Orders\CartController@addGame', $gra->id) }}" class="btn btn-success">Dodaj do koszyka</a></div>
       @else
@@ -39,10 +44,7 @@
       <div><a href="{{ action('User\Orders\CartController@addGame', $gra->id) }}" class="btn btn-success">Dodaj do koszyka</a></div>
       @endcan
       @endif
-      @if($gra->currentSale)
-      <div class="p-1"><h3 class="text-success">Promocja {{(int)$gra->currentSale->znizka_procentowo}}%!</h3></div>
-      @endif
-      <div class="p-1 mt-2">
+      <div class="p-1 pt-3 mt-auto">
         @foreach ($gra->gatunki as $gatunek)
          <span class="mx-2"> {{$gatunek->nazwa}} </span>
         @endforeach
